@@ -6,7 +6,7 @@ String gMap = "http://www.google.com/maps/place/";
 double Latitude, Longitude, Altitude, speed;
 boolean GPSstatus = false;
 static const uint32_t GPSBaud = 9600;
-TinyGPSPlus gps; // The TinyGPS++ object
+TinyGPSPlus gps; 
 
 void setup() {
   SIM900Apower();
@@ -67,7 +67,7 @@ void Valid_GPS_Message()
 {
   SIM900A.println("AT+CMGF=1");    //Sets the GSM Module in Text Mode
   delay(1000);  
-  SIM900A.println("AT+CMGS=\"+918707810007\"\r");
+  SIM900A.println("AT+CMGS=\"+91PPPPPPPPPP\"\r");   //Where the P's can be replaced by a 10-digit phone number
   delay(1000);
   SIM900A.print(gMap); 
   delay(100);
@@ -85,16 +85,16 @@ void No_GPS_Message()
 {
   SIM900A.println("AT+CMGF=1");    // Text Mode
   delay(1000); 
-  SIM900A.println("AT+CMGS=\"+91 PH NO\"\r");
+  SIM900A.println("AT+CMGS=\"+91PPPPPPPPPP\"\r");
   delay(1000);
  // 
-  SIM900.println("AT+CMGS=\"+91 PH nO"\r");
+  SIM900.println("AT+CMGS=\"+91PPPPPPPPPP\"\r");
   //delay(1000);
   SIM900A.println("GPS DATA NOT AVAILABLE");
   delay(100);
   SIM900A.println("PLEASE TRY AGAIN LATER");
   delay(100);
-  SIM900A.println((char)26);// ASCII code of CTRL+Z
+  SIM900A.println((char)26);// ASCII code FOR UNDO
   delay(1000);
 }
 void getGPSdata() {
